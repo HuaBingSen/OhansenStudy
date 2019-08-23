@@ -10,9 +10,9 @@
 	</div>
 </template>
 <script type="text/javascript">
-	export default{
+	export default {
 		name: 'Item',
-		props:{
+		props : {
 			txt:{
 				type:String
 			},

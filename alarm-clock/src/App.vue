@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-    <TableBar></TableBar>
+    <tabbar />
   </div>
 </template>
 <script>
@@ -10,9 +10,9 @@ import worldClock from './views/worldClock'
 import secondWatch from './views/secondWatch'
 import calculatClock from './views/calculatClock'
 
-import TableBar from './views/tabbar'
+import tabbar from './components/tabbar'
 export default {
-  components: [alarm, worldClock, secondWatch, calculatClock,TableBar],
+  components: {alarm, worldClock, secondWatch, calculatClock,tabbar},
   created: function() {
     this.$router.push('/')
   }
@@ -21,4 +21,8 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
 </style>
