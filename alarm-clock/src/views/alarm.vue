@@ -17,25 +17,30 @@
       </div>
     </div>
     <div class="popup">
-      <!-- <div class="mask" :class="{'maskpop':isShow}"></div> -->
-      <!-- <div class="content" :class="{'trans':isShow}">
+      <div class="mask" :class="{'maskpop':isShow}"></div>
+       <div class="content" :class="{'trans':isShow}">
         <i class="el-icon-close" @click="pophide"></i>
         <span>添加闹钟</span>
-      </div> -->
-      <!-- <content :isShow="isShow"/> -->
-      
+      </div>
     </div>
-    <add-clock :isShow="isShow"/>
   </div>
 </template>
 
 <script>
-import addClock from '../components/content'
 export default {
-  components: {
-    addClock
-  },
-  methods: {
+   methods: {
+     change() {
+       this.$router.push({
+         path: '/secondWatch',
+         query: {
+           id: 1
+         }
+       })
+     },
+    goSecondWatch() {
+      // this.$router.push({path:'/secondWatch'})
+      this.$router.push({name:'secondWatch'})
+    },
     //  选择铃声
     chooseMusic() {
       console.log('chooseMusic')
@@ -48,19 +53,25 @@ export default {
     //  编辑
     editing() {
       console.log('editing')
+    },
+    pophide() {
+      this.isShow = false
     }
-  },
-  data() {
+   },
+   data() {
     return {
-      isShow: false
+      isShow: false,
+      id: 1
     }
   }
-}
+  }
+
 </script>
 
 <style scoped>
 .html {
   height: 100%;
+  width: 100px;
 }
 .head {
   height: 90px;
@@ -119,6 +130,19 @@ export default {
   pointer-events: auto;
   opacity: 1;
   visibility: visible;
+}
+.content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top:  0;
+  background-color: #fff;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  box-shadow: 0 -1px 40px rgba(0, 0, 0, .3);
+  -webkit-transition: -webkit-transform .3s cubic-bezier(0, 0, .25, 1) 80ms;
+  transition: transform .3s cubic-bezier(0, 0, .25, 1) 80ms;
 }
 .trans {
   -webkit-transform: translate3d(0, 0, 0);

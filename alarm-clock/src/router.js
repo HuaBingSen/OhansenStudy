@@ -29,7 +29,6 @@ export default new Router({
       path: '/secondWatch',
       name: 'secondWatch',
       component: secondWatch
-
     },
     {
       path: '/calculatClock',

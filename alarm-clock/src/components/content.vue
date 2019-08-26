@@ -1,5 +1,6 @@
 <template>
   <div class="content" :class="{'trans':isShow}">
+    {{isShow}}
     <i class="el-icon-close" @click="pophide"></i>
     <span>添加闹钟</span>
   </div>
@@ -10,16 +11,12 @@ export default {
   props: ['isShow'],
   methods: {
     pophide () {
-      // console.log(111);
-      // this.ishow = this.ishow;
-      // console.log(this.ishow);
-      console.log(this.ishow);
-      this.$emit('sendVal', this.ishow)
+      this.isShow = !this.isShow
     }
   },
   data() {
     return {
-      ishow: this.isShow
+      // ishow: this.isShow
     }
   }
 }
